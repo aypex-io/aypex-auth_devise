@@ -19,11 +19,21 @@ bundle install
 bundle exec rails g aypex:auth_devise:install
 ```
 
+### Create a default Admin user
+
+To create an Admin user, run this rake task:
+
+```bash
+bundle exec rake aypex:auth_devise:create_admin
+```
+If you are doing this for the first time in production, it is recommended that you have your application emails set up and deliverable. Ensure Confirmable is set to true as detailed below, guaranteeing your new admin user can be confirmed.
+
+
 ## Configuration
 
 ### Confirmable
 
-When in production it is highly recommended that you enable Devise's Confirmable module, which will send the user an email with a link to confirm their account, you must do the following:
+When in production, it is highly recommended that you enable Devise's Confirmable module, which will send new users an email containing a link to confirm their account.
 
 Add this line to an initializer in your Rails project (typically `config/initializers/aypex.rb`):
 ```ruby
@@ -79,17 +89,6 @@ Inside of your host application you can then use CanCan like you normally would.
 ```ruby
 if can? :show, SomeRailsObject
 ```
-
-### Creating the default Admin user
-
-If you didn't created the Admin user from the installer you can run this rake task:
-
-```bash
-bundle exec rake aypex:auth_devise:create_admin
-```
-if you are doing this for the first time in production it is recommended that you have application emails delivering and set Confirmable to true as detailed above
-this will ensure your admin is confirmed for the start.
-
 
 ## Testing
 
