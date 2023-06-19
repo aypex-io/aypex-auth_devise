@@ -1,5 +1,5 @@
 module Aypex
-  module Auth
+  module AuthDevise
     module Generators
       class InstallGenerator < Rails::Generators::Base
         class_option :migrate, type: :boolean, default: true, banner: "Migrate the database"

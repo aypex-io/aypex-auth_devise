@@ -16,7 +16,7 @@ bundle install
 
 3. Copy & run migrations:
 ```bash
-bundle exec rails g aypex:auth:install
+bundle exec rails g aypex:auth_devise:install
 ```
 
 ## Configuration
@@ -85,7 +85,7 @@ if can? :show, SomeRailsObject
 If you didn't created the Admin user from the installer you can run this rake task:
 
 ```bash
-bundle exec rake aypex_auth_devise:admin:create
+bundle exec rake aypex:auth_devise:create_admin
 ```
 if you are doing this for the first time in production it is recommended that you have application emails delivering and set Confirmable to true as detailed above
 this will ensure your admin is confirmed for the start.
