@@ -1,7 +1,6 @@
 # Aypex::AuthDevise
 Adds Sign In / Sign Out + Accounts to Aypex
 
-
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
@@ -10,25 +9,14 @@ Adds Sign In / Sign Out + Accounts to Aypex
 gem 'aypex-auth_devise'
 ```
 
-if you run into any version-mismatch problems please run `bundle update`
-
 2. Install the gem using Bundler:
 ```bash
 bundle install
 ```
 
-3. Copy & run migrations
+3. Copy & run migrations:
 ```bash
 bundle exec rails g aypex:auth:install
-```
-
-```ruby
-gem "aypex-auth_devise"
-```
-
-And then execute:
-```bash
-bundle
 ```
 
 ## Configuration
