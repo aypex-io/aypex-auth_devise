@@ -4,13 +4,7 @@ Aypex::Engine.routes.draw do
       path: :accounts,
       class_name: Aypex::Config.user_class.to_s,
       router_name: :aypex,
-      module: :aypex,
-      controllers: {
-        sessions: "aypex/auth_devise/user_sessions",
-        registrations: "aypex/auth_devise/user_registrations",
-        passwords: "aypex/auth_devise/user_passwords",
-        confirmations: "aypex/auth_devise/user_confirmations"
-      },
+      module: "aypex/auth_devise",
       skip: [:unlocks, :omniauth_callbacks]
 
     if Aypex::Engine.storefront_available?
@@ -20,7 +14,7 @@ Aypex::Engine.routes.draw do
     end
 
     devise_scope :aypex_user do
-      get :unauthorized, to: "user_sessions#unauthorized", as: :unauthorized
+      get :unauthorized, to: "sessions#unauthorized", as: :unauthorized
     end
 
     if Aypex::Engine.api_available?

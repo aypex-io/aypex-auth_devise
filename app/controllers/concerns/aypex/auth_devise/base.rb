@@ -2,6 +2,7 @@ module Aypex
   module AuthDevise
     module Base
       extend ActiveSupport::Concern
+
       included do
         helper "aypex/base" if defined?(Aypex::BaseHelper)
         helper "aypex/auth_devise/application"

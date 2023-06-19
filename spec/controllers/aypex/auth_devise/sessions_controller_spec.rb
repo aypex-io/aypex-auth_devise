@@ -1,6 +1,6 @@
 require "spec_helper"
 
-RSpec.describe Aypex::AuthDevise::UserSessionsController do
+RSpec.describe Aypex::AuthDevise::SessionsController do
   let!(:store) { create(:store) }
   let!(:store_two) { create(:store) }
   let(:user) { create(:user, store: store) }
