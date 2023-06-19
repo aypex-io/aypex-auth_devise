@@ -1,7 +1,6 @@
 module Aypex
   class UsersController < Aypex::StoreController
     include Aypex::ControllerHelpers
-    include Aypex::AuthenticationHelpers
 
     before_action :load_user
     prepend_before_action :authorize_actions, only: :new
@@ -15,7 +14,7 @@ module Aypex
 
     def update
       if @user.update!(user_params)
-        redirect_to aypex_account_path, notice: I18n.t("aypex.auth.account_updated")
+        redirect_to aypex_account_path, notice: I18n.t("aypex.auth_devise.account_updated")
       else
         render action: :edit, status: :unprocessable_entity
       end
@@ -34,13 +33,13 @@ module Aypex
 
       if @user.valid_password?(existing_password)
         if @user.reset_password(new_password, new_password_confirmation)
-          redirect_to aypex_account_path, notice: I18n.t("aypex.auth.password_updated")
+          redirect_to aypex_account_path, notice: I18n.t("aypex.auth_devise.password_updated")
         else
-          flash[:notice] = I18n.t("aypex.auth.password_error")
+          flash[:notice] = I18n.t("aypex.auth_devise.password_error")
           render action: :edit, status: :unprocessable_entity
         end
       else
-        @user.errors.add(:existing_password, I18n.t("aypex.auth.existing_password_incorrect"))
+        @user.errors.add(:existing_password, I18n.t("aypex.auth_devise.existing_password_incorrect"))
         render action: :edit, status: :unprocessable_entity
       end
     end
@@ -62,7 +61,7 @@ module Aypex
     end
 
     def accurate_title
-      I18n.t("aypex.auth.my_account")
+      I18n.t("aypex.auth_devise.my_account")
     end
   end
 end

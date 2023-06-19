@@ -1,0 +1,77 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <h3><%= I18n.t('aypex.auth_devise.update_your_details') %></h3>
+      <%= form_with model: @user, scope: :user, url: aypex.account_path, class: 'row', method: :patch do |f| %>
+        <div class="col-12">
+          <div class="form-floating mb-3">
+            <%= f.email_field :email, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.email'), required: true %>
+            <%= f.label :email, I18n.t('aypex.auth_devise.email') %>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-floating mb-3">
+            <%= f.text_field :phone, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.phone'), required: false %>
+            <%= f.label :phone, I18n.t('aypex.auth_devise.phone') %>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-floating mb-3">
+            <%= f.text_field :first_name, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.first_name'), required: false %>
+            <%= f.label :first_name, I18n.t('aypex.auth_devise.first_name') %>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-floating mb-3">
+            <%= f.text_field :last_name, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.last_name'), required: false %>
+            <%= f.label :last_name, I18n.t('aypex.auth_devise.last_name') %>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-floating mb-3">
+            <%= f.select :selected_locale, options_from_collection_for_select(supported_locales_options(current_locale), :last, :first, current_store.default_locale || I18n.locale), {}, {class: "form-control"} %>
+            <%= f.label :selected_locale, I18n.t("aypex.auth_devise.language") %>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <%= f.submit I18n.t('aypex.auth_devise.update_details'), class: 'btn btn-primary w-100' %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <h3><%= I18n.t('aypex.auth_devise.change_your_password') %></h3>
+      <%= form_with model: @user, scope: :user, url: aypex.update_password_account_path, class: 'row', method: :patch do |f| %>
+        <div class="col-12">
+          <div class="form-floating mb-3">
+            <%= f.password_field :existing_password, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.existing_password'), required: true, autocomplete: "password" %>
+            <%= f.label :existing_password, I18n.t('aypex.auth_devise.existing_password') %>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-floating mb-3">
+            <%= f.password_field :password, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.password'), required: true, autocomplete: "new-password" %>
+            <%= f.label :password, I18n.t('aypex.auth_devise.new_password') %>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-floating mb-3">
+            <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), required: true, autocomplete: "new-password" %>
+            <%= f.label :password_confirmation, I18n.t('aypex.auth_devise.confirm_new_password') %>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <%= f.submit I18n.t('aypex.auth_devise.update_password'), class: 'btn btn-primary w-100' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

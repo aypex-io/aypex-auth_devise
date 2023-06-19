@@ -1,0 +1,30 @@
+<% accounts_title ||= 'Account Title' %>
+<% accounts_message ||= nil %>
+
+<div class="position-relative d-flex align-items-center h-100 py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+        <div class="row">
+          <div class="col-12">
+            <h2><%= accounts_title %></h2>
+            <% if accounts_message %>
+              <p class="text-muted"><%= accounts_message %></p>
+            <% end %>
+          </div>
+
+          <div class="col-12">
+            <%= render "devise/shared/error_messages", resource: resource if resource %>
+            <%= yield :account_access if content_for?(:account_access) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-end m-3 position-absolute top-0 end-0">
+  <%= link_to aypex_user_root_path do %>
+    <%= aypex_svg_tag "close.svg", height: "35px", width: "35px" %>
+  <% end if defined?(aypex_user_root_path) %>
+</div>

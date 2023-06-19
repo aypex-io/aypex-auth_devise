@@ -1,0 +1,86 @@
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12 col-lg-4">
+    <h3>
+      <%= I18n.t('aypex.auth_devise.account_info') %>
+      <%= link_to aypex.edit_account_path do %>
+        <%= aypex_storefront_svg_tag('edit.svg', width: 25, height: 25, class: "mb-1") %>
+      <% end %>
+    </h3>
+    <div>
+      <%= @user.email %>
+    </div>
+    <div>
+      <%= @user.first_name %> <%= @user.last_name %>
+    </div>
+      <div class="d-lg-inline-block account-page-user-info-item-store-credits">
+        <p class="my-0 text-uppercase text-center">
+          <%= I18n.t('aypex.auth_devise.store_credit_name') %>
+          <% @user.available_store_credits(current_store).each do |value| %>
+            <br><b class="account-page-user-info-item-store-credits-amount"><%= value %></b>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-lg-8 mt-sm-5 mt-lg-0">
+      <h4 class="mb-3"><%= link_to I18n.t('aypex.auth_devise.add_new_address'), aypex.new_address_path, method: :get %></h4>
+      <div class="row">
+        <% @user.addresses.each_with_index do |address, index| %>
+          <div class="col-12 col-sm-6 mb-3">
+            <% index += 1 %>
+            <% if index % 3 == 0 %>
+              <div class="account-page-user-info-item my-4"></div>
+            <% end %>
+            <div class="row">
+              <div class="col-8 col-lg-6">
+                <%= render "aypex/users/address", address: address %>
+              </div>
+              <div class="col">
+                <%= render "aypex/users/address_controls", address: address %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div data-hook="account_my_orders" class="account-page-orders" id="account-my-orders">
+    <h3 class="text-uppercase aypex-mb-medium aypex-mt-medium aypex-header"><%= I18n.t('aypex.auth_devise.my_orders') %></h3>
+    <% if @orders.present? %>
+      <table>
+        <thead class="active">
+          <tr>
+            <th class="text-uppercase text-secondary account-page-order-number"><%= Aypex::Order.human_attribute_name(:number) %></th>
+            <th class="text-uppercase text-secondary account-page-order-date"><%= I18n.t('aypex.auth_devise.date') %></th>
+            <th class="text-uppercase text-secondary account-page-order-status"><%= I18n.t('aypex.auth_devise.status') %></th>
+            <th class="text-uppercase text-secondary account-page-order-payment-state"><%= I18n.t('aypex.auth_devise.payment_state') %></th>
+            <th class="text-uppercase text-secondary account-page-order-shipment-state"><%= I18n.t('aypex.auth_devise.shipment_state') %></th>
+            <th class="text-uppercase text-secondary account-page-order-total"><%= I18n.t('aypex.auth_devise.total') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td class="account-page-order-number"><%= link_to order.number, aypex.order_path(order), class: "text-primary" %></td>
+              <td class="account-page-order-date"><%= l order.completed_at.to_date %></td>
+              <td class="account-page-order-status"><%= I18n.t("aypex.auth_devise.order_state.#{order.state}").titleize %></td>
+              <td class="account-page-order-payment-state"><%= I18n.t("aypex.auth_devise.payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
+              <td class="account-page-order-shipment-state"><%= I18n.t("aypex.auth_devise.shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
+              <td class="account-page-text-primary account-page-order-total account-page-lead"><%= order.display_total %></td>
+              <td class="account-page-arrow-container" data-order-path="<%= aypex.order_path(order) %>">
+                <%= link_to '', aypex.order_path(order), { class: "account-page-order-arrow" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p class="text-center"><%= I18n.t('aypex.auth_devise.you_have_no_orders_yet') %></p>
+    <% end %>
+    <br>
+  </div>
+  <div id="delete-address-popup" class="delete-address-popup-dropdown hide-on-esc">
+    <%= render 'aypex/shared/delete_address_popup' %>
+  </div>
+</div>

@@ -44,7 +44,7 @@ module Aypex
       end
 
       def self.activate
-        ApplicationController.include Aypex::AuthenticationHelpers
+        ::ApplicationController.include Aypex::AuthenticationHelpers
       end
 
       if api_available?

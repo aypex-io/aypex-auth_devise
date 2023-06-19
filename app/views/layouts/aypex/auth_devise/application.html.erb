@@ -4,15 +4,15 @@
     <title><%= title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'aypex/auth/devise.min', media: 'screen', data: { turbo_track: 'reload' } %>
-    <%= javascript_include_tag "aypex-auth_devise.min", data: { turbo_track: "reload" }, async: true %>
+    <%= stylesheet_link_tag 'aypex/auth_devise/application.min', media: 'screen', data: { turbo_track: 'reload' } %>
+    <%= javascript_include_tag "aypex/auth_devise/application.min", data: { turbo_track: "reload" }, async: true %>
     <%= yield :head %>
   </head>
 
   <body>
     <div class="grid text-center vh-100 align-items-center gap-0">
       <aside id="company_splash" class="g-col-12 g-col-sm-4 g-col-md-6 h-100 position-relative">
-        <%= render partial: 'aypex/shared/auth/company_splash' %>
+        <%= render partial: 'aypex/auth_devise/shared/company_splash' %>
       </aside>
 
       <section class="g-col-12 g-col-sm-8 g-col-md-6 h-100 pb-5 pb-md-0">

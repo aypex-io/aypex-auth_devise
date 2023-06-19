@@ -1,0 +1,43 @@
+<% content_for :company_details do %>
+  <p><%= I18n.t('aypex.auth_devise.please_sign_in_to_continue') %></p>
+<% end %>
+
+<% content_for :account_access do %>
+  <%= form_with model: resource, scope: resource_name, url: aypex.aypex_user_session_path, data: { hook: :login }, class: 'row', method: :post do |f| %>
+    <%= f.hidden_field :store_id, value: current_store.id %>
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <%= f.email_field :email, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.email'), value: params.dig(:aypex_user, :email), required: true, autofocus: true, autocomplete: "email" %>
+        <%= f.label :email, I18n.t('aypex.auth_devise.email') %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-floating">
+        <%= f.password_field :password, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.password'), required: true, autocomplete: "current-password" %>
+        <%= f.label :password, I18n.t('aypex.auth_devise.password') %>
+      </div>
+    </div>
+
+    <div class="col-6 pt-1 text-start">
+      <%= link_to I18n.t('aypex.auth_devise.forgot_password'), aypex.new_aypex_user_password_path if aypex.respond_to?(:new_aypex_user_password_path) %>
+    </div>
+
+    <div class="col-6 pt-3 text-end">
+      <%= f.submit I18n.t('aypex.auth_devise.sign_in'), class: 'btn btn-primary w-100' %>
+    </div>
+
+    <div class="col-12 mt-5 text-center">
+      <% if defined?(aypex_signup_path) %>
+        <%= I18n.t('aypex.auth_devise.dont_have_account') %> <%= link_to I18n.t('aypex.auth_devise.sign_up'), aypex_signup_path %>
+      <% end %>
+
+      <% if defined?(aypex.root_path) %>
+        <%= I18n.t("aypex.auth_devise.or") %>
+        <%= link_to I18n.t('aypex.auth_devise.return_to_store'), aypex.root_path %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render partial: 'aypex/auth_devise/shared/form_container', locals: { accounts_title: I18n.t('aypex.auth_devise.login')}  %>

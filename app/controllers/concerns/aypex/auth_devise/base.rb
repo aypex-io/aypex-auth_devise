@@ -22,7 +22,7 @@ module Aypex
 
         before_action :set_current_order, except: :show
 
-        layout Aypex::AuthDevise::Config.auth_layout_path
+        layout "aypex/auth_devise/application"
 
         # We have to override this method providing nil to router name
         # Strange behavior with Rails Engines and router_name.

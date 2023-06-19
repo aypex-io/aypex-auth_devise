@@ -1,0 +1,47 @@
+<% content_for :company_details do %>
+  <p><%= I18n.t('aypex.auth_devise.welcome') %></p>
+<% end %>
+
+<% content_for :account_access do %>
+  <%= form_with model: resource, scope: resource_name, url: aypex.aypex_user_registration_path, data: { hook: :aypex_signup_path }, class: 'row', method: :post do |f| %>
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <%= f.email_field :email, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.email'), value: params.dig(:aypex_user, :email), required: true, autofocus: true, autocomplete: "username" %>
+        <%= f.label :email, I18n.t('aypex.auth_devise.email') %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <%= f.password_field :password, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.password'), required: true, autocomplete: "new-password" %>
+        <%= f.label :password, I18n.t('aypex.auth_devise.password') %>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), required: true, autocomplete: "new-password" %>
+        <%= f.label :password_confirmation, I18n.t('aypex.auth_devise.confirm_password') %>
+      </div>
+    </div>
+
+    <div class="col">
+      <%= f.submit I18n.t('aypex.auth_devise.sign_up'), class: 'btn btn-primary w-100' %>
+    </div>
+  <% end %>
+
+   <div class="row mt-5 text-center">
+     <div class="col-12">
+     <% if defined?(aypex_login_path) %>
+       <%= I18n.t('aypex.auth_devise.already_have_an_account') %> <%= link_to I18n.t('aypex.auth_devise.sign_in'), aypex_login_path %>
+     <% end %>
+
+     <% if defined?(aypex.root_path) %>
+       <%= I18n.t("aypex.auth_devise.or") %>
+       <%= link_to I18n.t('aypex.auth_devise.return_to_store'), aypex.root_path %>
+     <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= render partial: 'aypex/auth_devise/shared/form_container', locals: { accounts_title: I18n.t('aypex.auth_devise.create_a_new_account')} %>

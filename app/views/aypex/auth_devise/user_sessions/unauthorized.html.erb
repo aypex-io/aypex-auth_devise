@@ -1,0 +1,22 @@
+<% content_for :company_details do %>
+  <p><%= I18n.t('aypex.auth_devise.contact_support_if_you_should_have_access') %></p>
+<% end %>
+
+<% content_for :account_access do %>
+  <div class="alert alert-danger w-100">
+    <%= I18n.t('aypex.auth_devise.sorry_you_do_not_have_access_to_this_page') %>
+  </div>
+
+  <% if defined?(aypex.root_path) %>
+    <%= link_to I18n.t('aypex.auth_devise.return_to_store'), aypex.root_path %>
+    <%= I18n.t("aypex.auth_devise.or") %>
+  <% end %>
+
+  <% if defined?(aypex_logout_path) && aypex_user_signed_in? %>
+    <div class="d-inline">
+      <%= button_to I18n.t('aypex.storefront.logout'), aypex_logout_path, method: :delete, class: "btn btn-link p-0 m-0 align-baseline text-decoration-none", form_class: "d-inline" %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render partial: 'aypex/auth_devise/shared/form_container', locals: { accounts_title: I18n.t('aypex.auth_devise.unauthorized')}  %>
