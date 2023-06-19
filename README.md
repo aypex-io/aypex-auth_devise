@@ -25,12 +25,12 @@ bundle exec rails g aypex:auth:install
 
 When in production it is highly recommended that you enable Devise's Confirmable module, which will send the user an email with a link to confirm their account, you must do the following:
 
-* Add this line to an initializer in your Rails project (typically `config/initializers/aypex.rb`):
+Add this line to an initializer in your Rails project (typically `config/initializers/aypex.rb`):
 ```ruby
 Aypex::AuthDevise::Config.confirmable = true
 ```
 
-* Add a Devise initializer to your Rails project (typically `config/initializers/devise.rb`):
+Add a Devise initializer to your Rails project (typically `config/initializers/devise.rb`):
 ```ruby
 Devise.setup do |config|
   # Required so users don't lose their carts when they need to confirm.
