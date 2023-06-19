@@ -9,7 +9,7 @@ import pkg from './package.json'
 export default [
   { // CSS
     input: './app/css/main.scss',
-    output: [{ file: './app/assets/stylesheets/aypex/auth/devise.min.css' }],
+    output: [{ file: './app/assets/stylesheets/aypex/application.min.css' }],
     plugins: [
       postcss({
         minimize: true,

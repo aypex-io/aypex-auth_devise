@@ -1,17 +1,17 @@
 {
-  "name": "@aypex/aypex-auth",
+  "name": "@aypex/aypex-auth_devise",
   "version": "0.0.1",
-  "description": "A stand alone Auth for Aypex",
-  "module": "app/javascript/aypex/auth/index.js",
-  "main": "app/assets/javascripts/aypex-auth_devise.esm.js",
-  "browser": "app/assets/javascripts/aypex-auth_devise.min.js",
-  "gem": "app/assets/javascripts/aypex-auth_devise.js",
+  "description": "A stand alone Auth Devise for Aypex",
+  "module": "app/javascript/aypex/auth_devise/index.js",
+  "main": "app/assets/javascripts/aypex/auth_devise/application.esm.js",
+  "browser": "app/assets/javascripts/aypex/auth_devise/application.min.js",
+  "gem": "app/assets/javascripts/aypex/auth_devise/application.js",
   "type": "module",
   "repository": "https://github.com/MatthewKennedy/aypex-auth_devise",
   "author": "Matthew Kennedy <m.kennedy@me.com>",
   "license": "MIT",
   "files": [
-    "app/javascript/aypex/auth"
+    "app/javascript/aypex/auth_devise"
   ],
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
