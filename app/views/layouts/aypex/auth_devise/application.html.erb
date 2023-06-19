@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Aypex auth devise</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+<!doctype html>
+  <html lang="<%= I18n.locale %>">
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'aypex/auth/devise.min', media: 'screen', data: { turbo_track: 'reload' } %>
+    <%= javascript_include_tag "aypex-auth_devise.min", data: { turbo_track: "reload" }, async: true %>
+    <%= yield :head %>
+  </head>
 
-  <%= stylesheet_link_tag    "aypex/auth_devise/application", media: "all" %>
-</head>
-<body>
+  <body>
+    <div class="grid text-center vh-100 align-items-center gap-0">
+      <aside id="company_splash" class="g-col-12 g-col-sm-4 g-col-md-6 h-100 position-relative">
+        <%= render partial: 'aypex/shared/auth/company_splash' %>
+      </aside>
 
-<%= yield %>
-
-</body>
+      <section class="g-col-12 g-col-sm-8 g-col-md-6 h-100 pb-5 pb-md-0">
+        <%= yield %>
+      </section>
+    </div>
+  </body>
 </html>

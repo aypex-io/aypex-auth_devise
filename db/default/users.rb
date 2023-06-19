@@ -59,7 +59,7 @@ def create_admin_user
       role = Aypex::Role.find_or_create_by(name: "admin")
       admin.aypex_roles << role
       admin.save
-      admin.generate_aypex_api_key! if Aypex::Auth::Engine.api_available?
+      admin.generate_aypex_api_key! if Aypex::AuthDevise::Engine.api_available?
       say "Done!"
     else
       say "There was some problems with persisting new admin user:"

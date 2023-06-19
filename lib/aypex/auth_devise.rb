@@ -3,8 +3,6 @@ require "aypex/auth_devise/engine"
 
 require "aypex"
 require "aypex/authentication_helpers"
-require "aypex/auth/version"
-require "aypex/auth/engine"
 require "devise"
 require "devise-encryptable"
 require "cancan"
@@ -23,4 +21,4 @@ module Aypex
 end
 
 Devise.secret_key = SecureRandom.hex(50)
-Aypex::Auth.default_secret_key = Devise.secret_key
+Aypex::AuthDevise.default_secret_key = Devise.secret_key

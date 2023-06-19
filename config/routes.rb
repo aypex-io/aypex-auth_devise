@@ -1,14 +1,15 @@
 Aypex::Engine.routes.draw do
   scope "(:locale)", locale: /#{Aypex.available_locales.join('|')}/, defaults: {locale: nil} do
-    devise_for :accounts,
-      singular: :aypex_user,
+    devise_for :aypex_user,
+      path: :accounts,
       class_name: Aypex::Config.user_class.to_s,
       router_name: :aypex,
+      module: :aypex,
       controllers: {
-        sessions: "aypex/user_sessions",
-        registrations: "aypex/user_registrations",
-        passwords: "aypex/user_passwords",
-        confirmations: "aypex/user_confirmations"
+        sessions: "aypex/auth_devise/user_sessions",
+        registrations: "aypex/auth_devise/user_registrations",
+        passwords: "aypex/auth_devise/user_passwords",
+        confirmations: "aypex/auth_devise/user_confirmations"
       },
       skip: [:unlocks, :omniauth_callbacks]
 

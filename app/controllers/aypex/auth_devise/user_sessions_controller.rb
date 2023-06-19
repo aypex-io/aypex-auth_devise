@@ -1,12 +1,14 @@
 module Aypex
-  class UserSessionsController < Devise::SessionsController
-    include Aypex::Auth::Base
+  module AuthDevise
+    class UserSessionsController < Devise::SessionsController
+      include Aypex::AuthDevise::Base
 
-    def unauthorized
-      return if try_aypex_current_user
+      def unauthorized
+        return if try_aypex_current_user
 
-      store_location
-      redirect_to aypex.unauthorized_path
+        store_location
+        redirect_to aypex.unauthorized_path
+      end
     end
   end
 end

@@ -1,5 +1,7 @@
 module Aypex
-  class UserPasswordsController < Devise::PasswordsController
-    include Aypex::Auth::Base
+  module AuthDevise
+    class UserPasswordsController < Devise::PasswordsController
+      include Aypex::AuthDevise::Base
+    end
   end
 end
