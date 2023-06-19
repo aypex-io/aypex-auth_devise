@@ -1,5 +1,5 @@
-name: Standard JS
-
+---
+name: Lint JS
 on:
   pull_request:
     branches:

@@ -1,8 +1,8 @@
-[![CI Test Suite](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/ci.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/ci.yml)
-[![Lint Ruby Formatting](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/standard_rb.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/standard_rb.yml)
-[![SNYK Gem Dependency](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/snyk.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/snyk.yml)
-[![Standard JS](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/standard_js.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/standard_js.yml)
-[![StyleLint](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/stylelint.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/stylelint.yml)
+[![Spec](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/ci.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/ci.yml)
+[![Lint Ruby](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/standard_rb.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/standard_rb.yml)
+[![SNYK](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/snyk.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/snyk.yml)
+[![Lint JS](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/standard_js.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/standard_js.yml)
+[![Lint CSS](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/stylelint.yml/badge.svg)](https://github.com/aypex-io/aypex-auth_devise/actions/workflows/stylelint.yml)
 
 # Aypex::AuthDevise
 Adds Sign In / Sign Out + Accounts to Aypex

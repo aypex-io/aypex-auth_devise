@@ -1,5 +1,5 @@
 ---
-name: Lint Ruby Formatting
+name: Lint Ruby
 on:
   pull_request:
     branches:

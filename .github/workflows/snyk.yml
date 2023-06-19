@@ -1,5 +1,5 @@
 ---
-name: SNYK Gem Dependency
+name: SNYK
 on:
   pull_request:
     branches:

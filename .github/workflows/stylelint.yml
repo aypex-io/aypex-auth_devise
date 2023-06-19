@@ -1,5 +1,5 @@
-name: StyleLint
-
+---
+name: Lint CSS
 on:
   pull_request:
     branches:
