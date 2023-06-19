@@ -1,6 +1,6 @@
 module Aypex
   module AuthDevise
-    class UserSessionsController < Devise::SessionsController
+    class SessionsController < Devise::SessionsController
       include Aypex::AuthDevise::Base
 
       def unauthorized

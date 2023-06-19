@@ -1,6 +1,6 @@
 module Aypex
   module AuthDevise
-    class UserRegistrationsController < Devise::RegistrationsController
+    class RegistrationsController < Devise::RegistrationsController
       include Aypex::AuthDevise::Base
 
       private

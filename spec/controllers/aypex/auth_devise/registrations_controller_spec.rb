@@ -1,8 +1,6 @@
 require "spec_helper"
 
-RSpec.describe Aypex::AuthDevise::UserRegistrationsController do
-  before { @request.env["devise.mapping"] = Devise.mappings[:aypex_user] }
-
+RSpec.describe Aypex::AuthDevise::RegistrationsController do
   after { I18n.locale = :en }
 
   describe "#create" do

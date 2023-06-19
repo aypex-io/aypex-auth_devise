@@ -1,9 +1,7 @@
 require "spec_helper"
 
-RSpec.describe Aypex::AuthDevise::UserPasswordsController do
+RSpec.describe Aypex::AuthDevise::PasswordsController do
   let(:token) { "some_token" }
-
-  before { @request.env["devise.mapping"] = Devise.mappings[:aypex_user] }
 
   describe "GET edit" do
     context "when the user token has not been specified" do

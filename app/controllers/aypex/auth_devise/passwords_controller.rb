@@ -1,6 +1,6 @@
 module Aypex
   module AuthDevise
-    class UserConfirmationsController < Devise::ConfirmationsController
+    class PasswordsController < Devise::PasswordsController
       include Aypex::AuthDevise::Base
     end
   end

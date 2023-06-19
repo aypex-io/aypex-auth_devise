@@ -2,6 +2,7 @@ module Aypex
   module AuthDevise
     module Base
       extend ActiveSupport::Concern
+
       included do
         helper "aypex/base" if defined?(Aypex::BaseHelper)
         helper "aypex/auth_devise/application"
@@ -23,26 +24,6 @@ module Aypex
         before_action :set_current_order, except: :show
 
         layout "aypex/auth_devise/application"
-
-        # We have to override this method providing nil to router name
-        # Strange behavior with Rails Engines and router_name.
-        def signed_in_root_path(resource_or_scope)
-          scope = Devise::Mapping.find_scope!(resource_or_scope)
-          router_name = nil # Devise.mappings[scope].router_name
-          home_path = "#{scope}_root_path"
-
-          context = router_name ? send(router_name) : self
-
-          if context.respond_to?(home_path, true)
-            context.send(home_path)
-          elsif context.respond_to?(:root_path)
-            context.root_path
-          elsif respond_to?(:root_path)
-            root_path
-          else
-            "/"
-          end
-        end
 
         protected
 

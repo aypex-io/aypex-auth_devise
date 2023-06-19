@@ -7,7 +7,6 @@ module Aypex
       receiver.send :helper_method, :aypex_logout_path
       receiver.send :helper_method, :aypex_signup_path
       receiver.send :helper_method, :aypex_unauthorized_path
-      receiver.send :helper_method, :aypex_user_root_path if Aypex::Engine.storefront_available? || Aypex::Engine.admin_available?
     end
 
     def aypex_current_user
@@ -32,20 +31,6 @@ module Aypex
 
     def aypex_unauthorized_path(opts = {})
       aypex.unauthorized_path(opts)
-    end
-
-    # Sets the default root for login
-    # if either the Storefront or Admin are used
-    if Aypex::Engine.storefront_available? || Aypex::Engine.admin_available?
-      def aypex_user_root_path(opts = {})
-        if respond_to?(:root_path)
-          aypex.root_path(opts)
-        elsif respond_to?(:admin_root_path)
-          aypex.admin_root_path(opts)
-        else
-          "/"
-        end
-      end
     end
   end
 end
