@@ -1,0 +1,8 @@
+# Auto generated files with errors to ignore.
+# Remove from this list as you refactor files.
+---
+ignore:
+- lib/generators/aypex/auth/install/templates/config/initializers/devise.rb:
+  - Lint/Syntax
+- spec/support/warden_helper.rb:
+  - Style/MixinUsage
