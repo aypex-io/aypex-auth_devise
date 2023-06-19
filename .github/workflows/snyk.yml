@@ -26,7 +26,6 @@ jobs:
       - name: Bundle Gems
         run: |
           bundle install
-          yarn install
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/ruby@master
