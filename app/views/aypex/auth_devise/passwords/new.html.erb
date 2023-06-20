@@ -18,10 +18,30 @@
         <%= link_to I18n.t('aypex.auth_devise.return_to_sign_in'), aypex_login_path %>
       <% end %>
 
-      <% if defined?(aypex.root_path) %>
-        <%= link_to I18n.t('aypex.auth_devise.return_to_store'), aypex.root_path %>
+      <% if defined?(aypex_signup_path) %>
+        <%= link_to I18n.t('aypex.auth_devise.need_an_account'), aypex_signup_path %>
       <% end %>
     </div>
+  </div>
+
+  <div class="col-12 ">
+    <div class="position-relative mt-4">
+      <div class="position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center" aria-hidden="true">
+        <div class="w-100 border-top"></div>
+      </div>
+
+      <div class="position-relative d-flex justify-content-center">
+        <small class="px-2 bg-white text-muted font-medium">
+          <%= I18n.t("aypex.auth_devise.or") %>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 pt-4 text-center">
+    <% if defined?(aypex.root_path) %>
+      <%= link_to I18n.t('aypex.auth_devise.return_to_store'), aypex.root_path %>
+    <% end %>
   </div>
 <% end %>
 

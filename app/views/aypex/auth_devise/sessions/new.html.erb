@@ -50,8 +50,4 @@
   <% end %>
 <% end %>
 
-<% content_for :auth_footer do %>
-  <small class="text-muted">By signing up you agree to our terms of service and privacy policy.</small>
-<% end %>
-
 <%= render partial: 'aypex/auth_devise/shared/form_container', locals: { accounts_title: I18n.t('aypex.auth_devise.sign_in_to_your_account')}  %>

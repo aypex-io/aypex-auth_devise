@@ -1,7 +1,7 @@
 module Aypex
   module AuthDevise
     class Configuration
-      attr_writer :auth_layout_path, :signout_after_password_change, :validatable, :confirmable
+      attr_writer :auth_layout_path, :signout_after_password_change, :validatable, :confirmable, :use_password_confirm_field
 
       def auth_layout_path
         self.auth_layout_path = "application" unless @auth_layout_path
@@ -10,6 +10,16 @@ module Aypex
           @auth_layout_path
         else
           raise "Aypex::AuthDevise::Config.auth_layout_path MUST be an String"
+        end
+      end
+
+      def use_password_confirm_field
+        self.use_password_confirm_field = false unless @use_password_confirm_field == true
+
+        if @use_password_confirm_field.in? [true, false]
+          @use_password_confirm_field
+        else
+          raise "Aypex::AuthDevise::Config.use_password_confirm_field MUST be a Boolean (true / false)"
         end
       end
 

@@ -14,12 +14,14 @@
       </div>
     </div>
 
-    <div class="col-12">
-      <div class="form-floating mb-3">
-        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), required: true, autocomplete: "new-password" %>
-        <%= f.label :password_confirmation, I18n.t('aypex.auth_devise.confirm_password') %>
+    <% if Aypex::AuthDevise::Config.use_password_confirm_field %>
+      <div class="col-12">
+        <div class="form-floating mb-3">
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), required: true, autocomplete: "new-password" %>
+          <%= f.label :password_confirmation, I18n.t('aypex.auth_devise.confirm_password') %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="col-12 pt-2 d-flex justify-content-between">
       <%= link_to I18n.t('aypex.auth_devise.forgot_your_password'), aypex.new_aypex_user_password_path if aypex.respond_to?(:new_aypex_user_password_path) %>
@@ -34,14 +36,29 @@
     </div>
   <% end %>
 
-   <div class="row mt-5 text-center">
-     <div class="col-12">
-     <% if defined?(aypex.root_path) %>
-       <%= I18n.t("aypex.auth_devise.or") %>
-       <%= link_to I18n.t('aypex.auth_devise.return_to_store'), aypex.root_path %>
-     <% end %>
+  <div class="col-12 ">
+    <div class="position-relative mt-4">
+      <div class="position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center" aria-hidden="true">
+        <div class="w-100 border-top"></div>
+      </div>
+
+      <div class="position-relative d-flex justify-content-center">
+        <small class="px-2 bg-white text-muted font-medium">
+          <%= I18n.t("aypex.auth_devise.or") %>
+        </small>
+      </div>
     </div>
   </div>
+
+  <div class="col-12 pt-4 text-center">
+    <% if defined?(aypex.root_path) %>
+      <%= link_to I18n.t('aypex.auth_devise.return_to_store'), aypex.root_path %>
+    <% end %>
+  </div>
+<% end %>
+
+<% content_for :auth_footer do %>
+  <small class="text-muted">By signing up you agree to our terms of service and privacy policy.</small>
 <% end %>
 
 <%= render partial: 'aypex/auth_devise/shared/form_container', locals: { accounts_title: I18n.t('aypex.auth_devise.sign_up_for_an_account')} %>

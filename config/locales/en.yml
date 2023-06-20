@@ -14,18 +14,17 @@ en:
       dont_have_account: Don't have account?
       email: Email
       email_address: Email Address
-      enter_the_email_associated_with_your_account_and_we_ll_send_you_password_reset_instructions: Enter the email associated with your account and we ll send you password reset instructions
+      enter_the_email_associated_with_your_account_and_we_ll_send_you_password_reset_instructions: Enter the email associated with your account and we'll send you password reset instructions
       enter_your_email_and_we_will_send_a_reset_link: Enter your email, click Reset password, and we will send you a reset link to your inbox.
-      enter_your_new_password: Enter your new password
       existing_password: Existing password
       existing_password_incorrect: Existing password incorrect
       first_name: First name
       forgot_password: Forgot Password?
       forgot_your_password: Forgot Your Password?
-      go_back_to: Go back to
       have_an_account: Have an Account?
       language: Language
       last_name: Last name
+      make_it_hard_to_guess: Make it hard to guess
       my_account: My account
       my_orders: My orders
       need_an_account: Need an Account?
@@ -37,12 +36,13 @@ en:
       password_updated: Password updated
       payment_state: Payment state
       phone: Phone
-      please_sign_in_to_continue: Please sign in to continue.
+      reset_my_password: Reset my password
       reset_password: Reset password
       reset_your_password: Reset Your Password
       return_to_sign_in: Return to sign in
       return_to_store: Return to store
       send_reset_instructions: Send Reset Instructions
+      set_your_password: Set Your Password
       shipment_state: Shipment state
       sign_in: Sign in
       sign_in_to_your_account: Sign in to Your Account
@@ -73,7 +73,6 @@ en:
           store_team: "%{store_name} Team"
           thanks: Thank you,
           welcome: Hi %{email}
-      welcome: Welcome
       you_have_no_orders_yet: You have no orders yet
       your_email: Your email
     storefront:

@@ -1,7 +1,3 @@
-<% content_for :company_details do %>
-  <%= I18n.t('aypex.auth_devise.enter_your_new_password') %>
-<% end %>
-
 <% content_for :account_access do %>
   <%= form_with model: resource, scope: resource_name, url: aypex.aypex_user_password_path, data: { hook: :reset_password }, class: 'row', method: :put do |f| %>
     <%= f.hidden_field :reset_password_token %>
@@ -13,32 +9,52 @@
       </div>
     </div>
 
-    <div class="col-12">
-      <div class="form-floating mb-3">
-        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), required: true, autocomplete: "new-password" %>
-        <%= f.label :password_confirmation, I18n.t('aypex.auth_devise.confirm_password') %>
+    <% if Aypex::AuthDevise::Config.use_password_confirm_field %>
+      <div class="col-12">
+        <div class="form-floating mb-3">
+          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), required: true, autocomplete: "new-password" %>
+          <%= f.label :password_confirmation, I18n.t('aypex.auth_devise.confirm_password') %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
-    <div class="col-6 offset-6 text-end">
-      <%= f.submit I18n.t('aypex.auth_devise.reset_password'), class: 'btn btn-primary w-100' %>
+    <div class="col-12 mt-4">
+      <%= f.submit I18n.t('aypex.auth_devise.reset_my_password'), class: 'btn btn-primary w-100' %>
     </div>
   <% end %>
 
-   <div class="row mt-5 text-center">
-     <div class="col-12">
+  <div class="row pt-4">
+    <div class="col-12 d-flex justify-content-between">
       <% if defined?(aypex_login_path) %>
-        <%= I18n.t('aypex.auth_devise.go_back_to') %> <%= link_to I18n.t('aypex.auth_devise.sign_in'), aypex_login_path %>
-      <% end %>
-
-      <% if defined?(aypex.root_path) %>
-        <%= I18n.t("aypex.auth_devise.or") %>
-        <%= link_to I18n.t('aypex.auth_devise.return_to_store'), aypex.root_path %>
+        <%= link_to I18n.t('aypex.auth_devise.return_to_sign_in'), aypex_login_path %>
       <% end %>
     </div>
   </div>
+
+  <div class="col-12 ">
+    <div class="position-relative mt-4">
+      <div class="position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center" aria-hidden="true">
+        <div class="w-100 border-top"></div>
+      </div>
+
+      <div class="position-relative d-flex justify-content-center">
+        <small class="px-2 bg-white text-muted font-medium">
+          <%= I18n.t("aypex.auth_devise.or") %>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 pt-4 text-center">
+    <% if defined?(aypex.root_path) %>
+      <%= link_to I18n.t('aypex.auth_devise.return_to_store'), aypex.root_path %>
+    <% end %>
+  </div>
 <% end %>
 
-<%= render partial: 'aypex/auth_devise/shared/form_container', locals: { accounts_title: I18n.t('aypex.auth_devise.reset_password')} %>
+<%= render partial: 'aypex/auth_devise/shared/form_container', locals: {
+                      accounts_title: I18n.t('aypex.auth_devise.set_your_password'),
+                      accounts_message: I18n.t('aypex.auth_devise.make_it_hard_to_guess')
+                    } %>
 
 

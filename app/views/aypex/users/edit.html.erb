@@ -61,12 +61,14 @@
           </div>
         </div>
 
-        <div class="col-12">
-          <div class="form-floating mb-3">
-            <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), required: true, autocomplete: "new-password" %>
-            <%= f.label :password_confirmation, I18n.t('aypex.auth_devise.confirm_new_password') %>
+        <% if Aypex::AuthDevise::Config.use_password_confirm_field %>
+          <div class="col-12">
+            <div class="form-floating mb-3">
+              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), required: true, autocomplete: "new-password" %>
+              <%= f.label :password_confirmation, I18n.t('aypex.auth_devise.confirm_new_password') %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <div class="col-12">
           <%= f.submit I18n.t('aypex.auth_devise.update_password'), class: 'btn btn-primary w-100' %>

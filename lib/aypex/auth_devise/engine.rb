@@ -10,11 +10,11 @@ module Aypex
         Aypex::AuthDevise::Config = Aypex::AuthDevise::Configuration.new
       end
 
-      initializer "aypex-auth_devise.set_user_class", after: :load_config_initializers do
+      initializer "aypex.auth_devise.set_user_class", after: :load_config_initializers do
         Aypex::Config.user_class = "Aypex::User"
       end
 
-      initializer "aypex-auth_devise.check_secret_token" do
+      initializer "aypex.auth_devise.check_secret_token" do
         if Aypex::AuthDevise.default_secret_key == Devise.secret_key
           puts "[WARNING] You are not setting Devise.secret_key within your application!"
           puts "You must set this in config/initializers/devise.rb. Here's an example:"

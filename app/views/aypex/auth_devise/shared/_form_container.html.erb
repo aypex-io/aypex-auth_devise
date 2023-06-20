@@ -6,11 +6,4 @@
   <p class="text-muted"><%= accounts_message %></p>
 <% end %>
 
-<%= render "devise/shared/error_messages", resource: resource if resource %>
 <%= yield :account_access if content_for?(:account_access) %>
-
-<div class="text-end m-3 position-absolute top-0 end-0">
-  <%= link_to aypex_user_root_path do %>
-    <%= aypex_svg_tag "close.svg", height: "35px", width: "35px" %>
-  <% end if defined?(aypex_user_root_path) %>
-</div>
