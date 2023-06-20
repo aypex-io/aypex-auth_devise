@@ -29,7 +29,11 @@ module Aypex
       # field by using developer tools to delete the password_confirmation field.
       existing_password = permitted_params[:existing_password] || ""
       new_password = permitted_params[:password] || ""
-      new_password_confirmation = permitted_params[:password_confirmation] || ""
+      new_password_confirmation = if Aypex::AuthDevise::Config.use_password_confirm_field
+        permitted_params[:password_confirmation] || ""
+      else
+        permitted_params[:password_confirmation]
+      end
 
       if @user.valid_password?(existing_password)
         if @user.reset_password(new_password, new_password_confirmation)

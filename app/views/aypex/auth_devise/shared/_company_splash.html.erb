@@ -1,16 +1,13 @@
-<img src="<%= asset_path("aypex/auth_devise/login-background-warm.webp") %>" class="position-absolute d-block w-100 h-100 top-0 end-0 bottom-0 start-0" style="object-fit: cover;">
-
-<div class="position-relative d-flex align-items-center h-100">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 offset-lg-3">
-        <div style="margin:auto; max-width: 200px">
-          <%= store_logo %>
-        </div>
-        <%= yield :company_details if content_for?(:company_details) %>
+<div class="container position-relative">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div style="margin:auto;">
+        <%= store_logo %>
       </div>
+      <%= yield :company_details if content_for?(:company_details) %>
     </div>
   </div>
 </div>
+
 
 

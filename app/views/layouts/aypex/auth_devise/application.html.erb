@@ -1,6 +1,6 @@
-<!doctype html>
-  <html lang="<%= I18n.locale %>">
-  <head>
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head data-hook="inside_head">
     <title><%= title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
@@ -9,15 +9,60 @@
     <%= yield :head %>
   </head>
 
-  <body>
-    <div class="grid text-center vh-100 align-items-center gap-0">
-      <aside id="company_splash" class="g-col-12 g-col-sm-4 g-col-md-6 h-100 position-relative">
-        <%= render partial: 'aypex/auth_devise/shared/company_splash' %>
+  <body id=checkout-page>
+    <div id=checkout-container>
+      <header>
+        <div class=container>
+          <div class=row>
+            <div class="col-12">
+              <%= render partial: 'aypex/auth_devise/shared/header' %>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <aside>
+        <img src="<%= asset_path("aypex/auth_devise/login-background-warm.webp") %>" class="position-absolute d-block w-100 h-100 top-0 end-0 bottom-0 start-0" style="object-fit: cover;">
+
+        <div class="container position-sticky top-20px">
+          <div class=row>
+            <div class=col-12>
+              <div id="checkout-summary" class="py-0 my-2" data-hook="checkout_summary_box" style="top: 80px;">
+                <%= render partial: 'aypex/auth_devise/shared/company_splash' %>
+              </div>
+            </div>
+          </div>
+        </div>
       </aside>
 
-      <section class="g-col-12 g-col-sm-8 g-col-md-6 h-100 pb-5 pb-md-0">
-        <%= yield %>
-      </section>
+      <main>
+        <div class=container>
+          <div class=row>
+            <div class="col-12 col-xl-8 offset-xl-2">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <div class="container mb-3">
+          <div class=row>
+            <div class="col-12 col-xl-8 offset-xl-2">
+              <%= render 'aypex/auth_devise/shared/footer' %>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
+
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+      <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x">
+        <%#= turbo_frame_tag :toast %>
+        <%#= aypex_checkout_flash_messages %>
+      </div>
+    </div>
+
+    <%#= turbo_frame_tag :modal %>
   </body>
 </html>
