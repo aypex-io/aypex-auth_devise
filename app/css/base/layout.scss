@@ -1,14 +1,13 @@
-body#checkout-page {
+body#auth-page {
   padding: 0;
   margin: 0;
 
-  div#checkout-container {
+  div#auth-container {
     display: grid;
   }
 
   header {
-      padding-top: 20px;
-      padding-bottom: 60px;
+      padding-top: 80px;
     }
 
   aside {
@@ -23,7 +22,7 @@ body#checkout-page {
       }
     }
 
-    div#checkout-container {
+    div#auth-container {
       padding: 0 !important;
       margin: 0 !important;
       grid-template:

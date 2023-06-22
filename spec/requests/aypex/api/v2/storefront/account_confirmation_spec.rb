@@ -7,7 +7,7 @@ describe "Storefront API v2 Account Confirmation spec" do
       get "/api/v2/storefront/account_confirmations/#{confirmation_token}"
     end
 
-    context "valid confirmation_token param" do
+    context "when valid confirmation_token" do
       let(:user) { create(:user, confirmation_token: "12345") }
       let(:confirmation_token) { user.confirmation_token }
 
@@ -18,7 +18,7 @@ describe "Storefront API v2 Account Confirmation spec" do
       end
     end
 
-    context "invalid confirmation_token param" do
+    context "when invalid confirmation_token" do
       let(:user) do
         user = create(:user)
         user.errors.add(:confirmation_token, :invalid)
