@@ -8,7 +8,7 @@ rescue LoadError
   puts "Could not load dummy application. Please ensure you have run `bundle exec rake test_app`"
 end
 
-# Require the Aypex Developer Tools
+# Require the Aypex Developer Tools.
 require "aypex_dev_tools/rspec/spec_helper"
 
 # Load the spec/support files.
