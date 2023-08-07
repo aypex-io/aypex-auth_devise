@@ -7,8 +7,7 @@ module Aypex
 
     scoped_by_keys = [:email, :store_id]
 
-    devise :database_authenticatable, :encryptable, encryptor: :authlogic_sha512
-    devise :registerable, :recoverable, :rememberable, :trackable
+    devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable
     devise :confirmable, confirmation_keys: scoped_by_keys if Aypex::AuthDevise::Config.confirmable
     devise :validatable if Aypex::AuthDevise::Config.validatable
     devise authentication_keys: scoped_by_keys, reset_password_keys: scoped_by_keys

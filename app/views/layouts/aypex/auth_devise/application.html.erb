@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="<%= I18n.locale %>">
-  <head data-hook="inside_head">
-    <title><%= title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag 'aypex/auth_devise/application.min', media: 'screen', data: { turbo_track: 'reload' } %>
-    <%= javascript_include_tag "aypex/auth_devise/application.min", data: { turbo_track: "reload" }, async: true %>
-    <%= yield :head %>
+  <head data-hook="inside_auth_head">
+    <%= render partial: 'aypex/auth_devise/shared/head' %>
   </head>
 
   <body id=auth-page>
@@ -58,11 +53,10 @@
 
     <div aria-live="polite" aria-atomic="true" class="position-relative">
       <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x">
-        <%#= turbo_frame_tag :toast %>
-        <%#= aypex_checkout_flash_messages %>
+        <%= turbo_frame_tag :toast %>
       </div>
     </div>
 
-    <%#= turbo_frame_tag :modal %>
+    <%= turbo_frame_tag :modal %>
   </body>
 </html>

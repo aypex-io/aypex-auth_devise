@@ -6,9 +6,6 @@ class AddAuthDeviseColumnsToAypexUsers < ActiveRecord::Migration[7.0]
       add_column Aypex::Config.user_class.table_name, :email, :string, null: false, default: "", if_not_exists: true
       add_column Aypex::Config.user_class.table_name, :encrypted_password, :string, null: false, default: "", if_not_exists: true
 
-      ## Devise Encryptable
-      add_column Aypex::Config.user_class.table_name, :password_salt, :string, null: false, default: "", if_not_exists: true
-
       ## Recoverable
       add_column Aypex::Config.user_class.table_name, :reset_password_token, :string, if_not_exists: true
       add_column Aypex::Config.user_class.table_name, :reset_password_sent_at, :datetime, if_not_exists: true

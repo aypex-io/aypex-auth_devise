@@ -45,9 +45,7 @@ def create_admin_user
   end
   attributes = {
     password:,
-    password_confirmation: password,
     email:,
-    login: email,
     store: Aypex::Store.default
   }
 
