@@ -49,9 +49,6 @@ jobs:
       - name: Set up Redis
         uses: shogo82148/actions-setup-redis@v1.19.0
 
-      - name: Install libvips
-        run: sudo apt-get install -y libvips
-
       - name: Make bin/core/ci executable
         run: chmod +x ./bin/ci
 
