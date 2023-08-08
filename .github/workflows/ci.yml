@@ -50,7 +50,9 @@ jobs:
         uses: shogo82148/actions-setup-redis@v1.19.0
 
       - name: Install libvips
-        run: sudo apt-get install -y libvips
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libvips-dev
 
       - name: Make bin/core/ci executable
         run: chmod +x ./bin/ci

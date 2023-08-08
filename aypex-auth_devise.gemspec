@@ -21,7 +21,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "aypex"
   spec.add_dependency "devise", "~> 4.9.0"
-  spec.add_dependency "devise-encryptable"
   spec.add_dependency "inline_svg"
   spec.add_dependency "responders"
   spec.add_dependency "turbo-rails"
