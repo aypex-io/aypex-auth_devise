@@ -9,6 +9,10 @@ module Aypex
         store_location
         redirect_to aypex.unauthorized_path
       end
+
+      private
+
+      default_form_builder(Aypex::AuthDevise::BootstrapBuilder)
     end
   end
 end
