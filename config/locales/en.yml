@@ -5,19 +5,18 @@ en:
       account_info: Account info
       account_updated: Account updated
       add_new_address: Add new address
-      change_your_password: Change your password
+      change_your_login_credentials: Change your login credentials
       confirm_new_password: Confirm new password
       confirm_password: Confirm password
       contact_support_if_you_should_have_access: Contact support if you should have access
       create_my_account: Create my account
+      current_password: Current password
       date: Date
       dont_have_account: Don't have account?
       email: Email
       email_address: Email Address
       enter_the_email_associated_with_your_account_and_we_ll_send_you_password_reset_instructions: Enter the email associated with your account and we'll send you password reset instructions
       enter_your_email_and_we_will_send_a_reset_link: Enter your email, click Reset password, and we will send you a reset link to your inbox.
-      existing_password: Existing password
-      existing_password_incorrect: Existing password incorrect
       first_name: First name
       forgot_password: Forgot Password?
       forgot_your_password: Forgot Your Password?
@@ -32,8 +31,6 @@ en:
       or: or
       or_go_back_to: ", or go back to"
       password: Password
-      password_error: Password error
-      password_updated: Password updated
       payment_state: Payment state
       phone: Phone
       reset_my_password: Reset my password
@@ -55,7 +52,7 @@ en:
       total: Total
       unauthorized: Unauthorized
       update_details: Update details
-      update_password: Update password
+      update_login_credentials: Update login credentials
       update_your_details: Update your details
       user_mailer:
         confirmation_instructions:

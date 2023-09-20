@@ -5,13 +5,6 @@
       <%= form_with model: @user, scope: :user, url: aypex.account_path, class: 'row', method: :patch do |f| %>
         <div class="col-12">
           <div class="form-floating mb-3">
-            <%= f.email_field :email, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.email'), required: true %>
-            <%= f.label :email, I18n.t('aypex.auth_devise.email') %>
-          </div>
-        </div>
-
-        <div class="col-12">
-          <div class="form-floating mb-3">
             <%= f.text_field :phone, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.phone'), required: false %>
             <%= f.label :phone, I18n.t('aypex.auth_devise.phone') %>
           </div>
@@ -45,18 +38,18 @@
     </div>
 
     <div class="col-12 col-lg-6">
-      <h3><%= I18n.t('aypex.auth_devise.change_your_password') %></h3>
+      <h3><%= I18n.t('aypex.auth_devise.change_your_login_credentials') %></h3>
       <%= form_with model: @user, scope: :user, url: aypex.update_password_account_path, class: 'row', method: :patch do |f| %>
         <div class="col-12">
           <div class="form-floating mb-3">
-            <%= f.password_field :existing_password, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.existing_password'), required: true, autocomplete: "password" %>
-            <%= f.label :existing_password, I18n.t('aypex.auth_devise.existing_password') %>
+            <%= f.email_field :email, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.email') %>
+            <%= f.label :email, I18n.t('aypex.auth_devise.email') %>
           </div>
         </div>
 
         <div class="col-12">
           <div class="form-floating mb-3">
-            <%= f.password_field :password, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.password'), required: true, autocomplete: "new-password" %>
+            <%= f.password_field :password, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.password'), autocomplete: "new-password" %>
             <%= f.label :password, I18n.t('aypex.auth_devise.new_password') %>
           </div>
         </div>
@@ -64,14 +57,25 @@
         <% if Aypex::AuthDevise::Config.use_password_confirm_field %>
           <div class="col-12">
             <div class="form-floating mb-3">
-              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), required: true, autocomplete: "new-password" %>
+              <%= f.password_field :password_confirmation, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.confirm_password'), autocomplete: "new-password" %>
               <%= f.label :password_confirmation, I18n.t('aypex.auth_devise.confirm_new_password') %>
             </div>
           </div>
         <% end %>
 
         <div class="col-12">
-          <%= f.submit I18n.t('aypex.auth_devise.update_password'), class: 'btn btn-primary w-100' %>
+          <hr>
+        </div>
+
+        <div class="col-12">
+          <div class="form-floating mb-3">
+            <%= f.password_field :current_password, class: 'form-control', placeholder: I18n.t('aypex.auth_devise.current_password'), required: true, autocomplete: "password" %>
+            <%= f.label :current_password, I18n.t('aypex.auth_devise.current_password') %>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <%= f.submit I18n.t('aypex.auth_devise.update_login_credentials'), class: 'btn btn-primary w-100' %>
         </div>
       <% end %>
     </div>

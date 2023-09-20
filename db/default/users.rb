@@ -39,7 +39,6 @@ def create_admin_user
     email = "admin@aypex.io"
   else
     puts "Create the admin user (press enter for defaults)."
-    # name = prompt_for_admin_name unless name
     email = prompt_for_admin_email
     password = prompt_for_admin_password
   end

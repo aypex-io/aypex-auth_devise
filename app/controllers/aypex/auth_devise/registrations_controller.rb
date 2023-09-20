@@ -5,6 +5,8 @@ module Aypex
 
       private
 
+      default_form_builder(Aypex::AuthDevise::BootstrapBuilder)
+
       def sign_up_params
         user_params = params.require(resource_name).permit(Aypex::PermittedAttributes.user_attributes)
         user_params[:selected_locale] ||= current_locale
